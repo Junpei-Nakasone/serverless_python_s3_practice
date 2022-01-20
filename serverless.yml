@@ -1,0 +1,25 @@
+service: serverless-tutorial
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  versionFunctions: false
+  lambdaHashingVersion: 20201221
+  memorySize: 128
+  region: ap-notheast-1
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: echo/hello
+          method: get
+  s3test:
+    handler: s3test.handler
+    events:
+      - s3:
+          bucket: photos20220120
+          event: s3:ObjectCreated:*
