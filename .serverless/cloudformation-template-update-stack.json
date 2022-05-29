@@ -139,6 +139,15 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-tutorial-dev*:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "S3:*"
+                  ],
+                  "Resource": [
+                    "*"
+                  ]
                 }
               ]
             }
@@ -167,7 +176,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-tutorial/dev/1642629695045-2022-01-19T22:01:35.045Z/serverless-tutorial.zip"
+          "S3Key": "serverless/serverless-tutorial/dev/1643317858823-2022-01-27T21:10:58.823Z/serverless-tutorial.zip"
         },
         "Handler": "handler.hello",
         "Runtime": "python3.8",
@@ -192,7 +201,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-tutorial/dev/1642629695045-2022-01-19T22:01:35.045Z/serverless-tutorial.zip"
+          "S3Key": "serverless/serverless-tutorial/dev/1643317858823-2022-01-27T21:10:58.823Z/serverless-tutorial.zip"
         },
         "Handler": "s3test.handler",
         "Runtime": "python3.8",
@@ -345,7 +354,7 @@
         "HelloLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1642629693942": {
+    "ApiGatewayDeployment1643317857930": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {

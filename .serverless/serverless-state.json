@@ -11,6 +11,21 @@
       "lambdaHashingVersion": "20201221",
       "memorySize": 128,
       "region": "ap-northeast-1",
+      "iam": {
+        "role": {
+          "statements": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "S3:*"
+              ],
+              "Resource": [
+                "*"
+              ]
+            }
+          ]
+        }
+      },
       "stage": "dev",
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
@@ -153,6 +168,9 @@
                             "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-tutorial-dev*:*:*"
                           }
                         ]
+                      },
+                      {
+                        "$ref": "$[\"service\"][\"provider\"][\"iam\"][\"role\"][\"statements\"][0]"
                       }
                     ]
                   }
@@ -181,7 +199,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-tutorial/dev/1642629695045-2022-01-19T22:01:35.045Z/serverless-tutorial.zip"
+                "S3Key": "serverless/serverless-tutorial/dev/1643317858823-2022-01-27T21:10:58.823Z/serverless-tutorial.zip"
               },
               "Handler": "handler.hello",
               "Runtime": "python3.8",
@@ -206,7 +224,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-tutorial/dev/1642629695045-2022-01-19T22:01:35.045Z/serverless-tutorial.zip"
+                "S3Key": "serverless/serverless-tutorial/dev/1643317858823-2022-01-27T21:10:58.823Z/serverless-tutorial.zip"
               },
               "Handler": "s3test.handler",
               "Runtime": "python3.8",
@@ -359,7 +377,7 @@
               "HelloLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1642629693942": {
+          "ApiGatewayDeployment1643317857930": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -587,7 +605,7 @@
     "artifact": "/Users/nakasonejunpei/nakasone_develop/serverless_python_s3_practice/.serverless/serverless-tutorial.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-tutorial/dev/1642629695045-2022-01-19T22:01:35.045Z",
+    "artifactDirectoryName": "serverless/serverless-tutorial/dev/1643317858823-2022-01-27T21:10:58.823Z",
     "artifact": "serverless-tutorial.zip"
   }
 }
